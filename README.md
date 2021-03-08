@@ -28,7 +28,7 @@ end-PR ;
 
 * QSQLSRC : RPGPROCDOC.SQL - SQL Create Script for Procedure Documentation table RPGPROCDOC
 * QRPGLESRC : RPGPROCDOC.SQLRPGLE - The build program that scans and publish the Procedure Documentation both in a Db2 Table and as a JSON file
-* QRPGLESRC : XXXPROCDOC.RPGLR - Template Program to Start the Build of your Procedure Documentation
+* QRPGLESRC : XXXPROCDOC.RPGLE - Template Program to Start the Build of your Procedure Documentation
 * QCMDSRC : XXXPROCDOC.CMD - Template Command to Start the Build of your Procedure Documentation
 * QPROTSRC : NLGMSG_PT and NLGCVL_PT - Example Prototypes that are used by the Template Start Build program
 
