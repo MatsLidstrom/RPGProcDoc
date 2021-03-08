@@ -1,0 +1,6 @@
+*.css linguist-detectable=false
+*.js linguist-detectable=true
+*.java linguist-detectable=false
+*.sqlrpgle linguist-detectable=true
+*.rpgle linguist-detectable=true
+*.sql linguist-detectable=true
