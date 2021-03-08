@@ -26,11 +26,11 @@ end-PR ;
 
 ### Components/Source Members 
 
-* QSQLSRC : RPGPROCDOC.SQL - SQL Create Script for Procedure Documentation table RPGPROCDOC
-* QRPGLESRC : RPGPROCDOC.SQLRPGLE - The build program that scans and publish the Procedure Documentation both in a Db2 Table and as a JSON file
-* QRPGLESRC : XXXPROCDOC.RPGLE - Template Program to Start the Build of your Procedure Documentation
-* QCMDSRC : XXXPROCDOC.CMD - Template Command to Start the Build of your Procedure Documentation
-* QPROTSRC : NLGMSG_PT and NLGCVL_PT - Example Prototypes that are used by the Template Start Build program
+* QSQLSRC : RPGPROCDOC.sql - SQL Create Script for Procedure Documentation table RPGPROCDOC
+* QRPGLESRC : RPGPROCDOC.sqlrpgle - The build program that scans and publish the Procedure Documentation both in a Db2 Table and as a JSON file
+* QRPGLESRC : XXXPROCDOC.rpgle - Template Program to Start the Build of your Procedure Documentation
+* QCMDSRC : XXXPROCDOC.cmd - Template Command to Start the Build of your Procedure Documentation
+* QPROTSRC : NLGMSG_PT.rpgle and NLGCVL_PT.rpgle - Example Prototypes that are used by the Template Start Build program
 
 **Note** : You also need a Web UI to search and view the documentation. Contact me so that I can provide you with one :-)
 
