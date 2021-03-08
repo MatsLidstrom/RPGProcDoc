@@ -53,3 +53,7 @@ New tags can be added as needed and should be structured as in the example.
 5. Create the QPROTSRC Source File - **CRTSRCPF FILE(RPGPROCDOC/QPROTSRC) RCDLEN(256) TEXT('Prototype Source')**
 6. Create and copy the corresponding source members according to the list above
 7. Run the SQL Script for the RPGPROCDOC table and compile the programs in QRPGLESRC and the Command in QCMDSRC 
+
+### How to use it
+
+The RPG Procedure Documentation is built by executing the Start Build Command. This can be made when new or changed documentation exists. A new JSON file will be built and it is also possible to store older versions in an archive. The Db2 Table RPGPROCDOC will hold all versions and can be queried and/or cleared depending on the needs. 
