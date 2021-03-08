@@ -32,7 +32,7 @@ end-PR ;
 ```
 ### Tags
 
-**Note** : The tab @Procedure_Name is madatory. The tags @Procedure_Source and @Procedure_Prototype are used as filter options in the Web UI.
+**Note** : The tag @Procedure_Name is madatory. The tags @Procedure_Source and @Procedure_Prototype are used as filter options in the Web UI.
 
 New tags can be added as needed and should be structured as in the example.
 
