@@ -5,7 +5,7 @@ ctl-opt actgrp('RPGProcDoc');
 // Program.........: RPGProcDoc
 // Description.....: RPG Procedure Documentaion
 // ................: Generates JSON File with Documantation taken from Prototype Source
-// Author..........: Mats Lidström
+// Author..........: Mats Lidström...
 // Created.........: 2018-08-04
 // Version.........: V1.5 2018-11-01
 // Version.........: V2.0 2021-03-06 - RPGProcDoc Table and JSON via SQL
