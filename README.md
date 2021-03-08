@@ -30,11 +30,11 @@ dcl-PR send_Message ;
        Message      like(T_Messages.Message) const ;
 end-PR ;
 ```
-### Tags/Labels
+### Tags
 
-**Note** : The tab/label @Procedure_Name is madatory. The tags/labels @Procedure_Source and @Procedure_Prototype are used as filter options in the Web UI.
+**Note** : The tab @Procedure_Name is madatory. The tags @Procedure_Source and @Procedure_Prototype are used as filter options in the Web UI.
 
-New tags/labels can be added as needed and should be structured as in the example.
+New tags can be added as needed and should be structured as in the example.
 
 ### Components/Source Members 
 
