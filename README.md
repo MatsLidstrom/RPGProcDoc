@@ -3,7 +3,7 @@ A Documentation Tool for modern RPG development on IBM i. Find all your already 
 
 By writing a structured documentation per procedure prototype, the RPGProcDoc tool can scan and capture the documentation. This both in a Db2 table and as a JSON file.
 
-#### Example:
+### Example:
 
 ```
 //----------------------------------------------------------------------
@@ -22,6 +22,8 @@ dcl-PR send_Message ;
        Message      like(T_Messages.Message) const ;
 end-PR ;
 ```
+### Tags/Label
+
 **Note** : The tab/label @Procedure_Name is madatory. The tags/labels @Procedure_Source and @Procedure_Prototype are needed to filter option in the Web UI.
 
 New tags/labels can be added as needed and should be structured as in the example.
