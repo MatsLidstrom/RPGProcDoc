@@ -22,7 +22,9 @@ dcl-PR send_Message ;
        Message      like(T_Messages.Message) const ;
 end-PR ;
 ```
+**Note** : The tab/label @Procedure_Name is madatory. The tags/labels @Procedure_Source and @Procedure_Prototype are needed to filter option in the Web UI.
 
+New tags/labels can added as needed and should be structured as in the example.
 
 ### Components/Source Members 
 
