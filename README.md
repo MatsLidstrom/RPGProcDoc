@@ -4,6 +4,8 @@ A Documentation Tool for modern RPG development on IBM i. Find all your already 
 
 <img width="960" alt="RPGProcDoc UI" src="https://user-images.githubusercontent.com/44493349/110349266-d5494100-8032-11eb-950e-182c194bd181.png">
 
+**Note** : The Web UI to Search and View the Documentation is not include here. Contact me to get a copy of it :-)
+
 
 By writing a structured documentation per procedure prototype, the RPGProcDoc tool can scan and capture the documentation. This both in a Db2 table and as a JSON file.
 
@@ -39,8 +41,6 @@ New tags/labels can be added as needed and should be structured as in the exampl
 * QRPGLESRC : XXXPROCDOC.rpgle - Template Program to Start the Build of your Procedure Documentation
 * QCMDSRC : XXXPROCDOC.cmd - Template Command to Start the Build of your Procedure Documentation
 * QPROTSRC : NLGMSG_PT.rpgle and NLGCVL_PT.rpgle - Example Prototypes that are used by the Template Start Build program
-
-**Note** : You also need a Web UI to search and view the documentation. Contact me so that I can provide you with one :-)
 
 ### How to install
 
