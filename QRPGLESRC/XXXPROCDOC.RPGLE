@@ -43,6 +43,7 @@ end-pr;
     ProcDocName = 'XXXProcDoc';
     DocHeader = 'My Applications RPG Procedure Documentation';
 
-    RPGProcDoc(SourceFiles : ProcDocName : CreateArchive : TargetDirectory : DocHeader : MainLabel : DocLineInd : LabelInd : LabelValueSeparator: JustInCase);
+    RPGProcDoc(SourceFiles : ProcDocName : CreateArchive : TargetDirectory : DocHeader : MainLabel : 
+               DocLineInd : LabelInd : LabelValueSeparator: JustInCase);
 
 *inlr = *on;
