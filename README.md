@@ -1,6 +1,10 @@
 # RPGProcDoc
 A Documentation Tool for modern RPG development on IBM i. Find all your already created Procedures and use them again and again.
 
+
+<img width="960" alt="RPGProcDoc UI" src="https://user-images.githubusercontent.com/44493349/110349266-d5494100-8032-11eb-950e-182c194bd181.png">
+
+
 By writing a structured documentation per procedure prototype, the RPGProcDoc tool can scan and capture the documentation. This both in a Db2 table and as a JSON file.
 
 ### Example:
