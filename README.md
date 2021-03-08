@@ -37,7 +37,7 @@ end-PR ;
 ### How to install
 
 1. Create library RPGPROCDOC - **CRTLIB LIB(RPGPROCDOC) TEXT('RPG Procedure Documentation')**
-2. Create the QSQLSRC Source File - **CRTSRCPF FILE(RPGPROCDOC/QSQLRC) RCDLEN(256) TEXT('SQL Script')**
+2. Create the QSQLSRC Source File - **CRTSRCPF FILE(RPGPROCDOC/QSQLSRC) RCDLEN(256) TEXT('SQL Script')**
 3. Create the QRPGLESRC Source File - **CRTSRCPF FILE(RPGPROCDOC/QRPGLESRC) RCDLEN(256) TEXT('RPG ILE Source')**
 4. Create the QCMDSRC Source File - **CRTSRCPF FILE(RPGPROCDOC/QCMDSRC) RCDLEN(92) TEXT('Command Source')**
 5. Create the QPROTSRC Source File - **CRTSRCPF FILE(RPGPROCDOC/QPROTSRC) RCDLEN(256) TEXT('Prototype Source')**
