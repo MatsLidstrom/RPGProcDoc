@@ -42,4 +42,4 @@ end-PR ;
 4. Create the QCMDSRC Source File - **CRTSRCPF FILE(RPGPROCDOC/QCMDSRC) RCDLEN(92) TEXT('Command Source')**
 5. Create the QPROTSRC Source File - **CRTSRCPF FILE(RPGPROCDOC/QPROTSRC) RCDLEN(256) TEXT('Prototype Source')**
 6. Create and copy the corresponding source members according to the list above
-7. Run the SQL Script for the RPGPROCDOC table and compile the programs
+7. Run the SQL Script for the RPGPROCDOC table and compile the programs in QRPGLESRC and the Command in QCMDSRC 
