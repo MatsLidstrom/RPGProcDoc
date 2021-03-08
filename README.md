@@ -56,4 +56,4 @@ New tags can be added as needed and should be structured as in the example.
 
 ### How to use it
 
-The RPG Procedure Documentation is built by executing the Start Build Command. This can be made when new or changed documentation exists. A new JSON file will be built and it is also possible to store older versions in an archive. The Db2 Table RPGPROCDOC will hold all versions and can be queried and/or cleared depending on the needs. 
+The RPG Procedure Documentation is built by executing the Start Build Command (xxxprocdoc in this example). This can be made when new or changed documentation exists. A new JSON file will be built and it is also possible to store older versions in an archive. The Db2 Table RPGPROCDOC will hold all versions and can be queried and/or cleared depending on the needs. 
