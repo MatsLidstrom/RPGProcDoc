@@ -5,7 +5,7 @@ ctl-opt actgrp('RPGProcDoc');
 // Program.........: XXXProcDoc
 // Description.....: Start RPGProcDoc for My Application
 // Author..........: Mats Lidström
-// Created.........: 2018-08-05
+// Created.........: 2021-03-07
 // -----------------------------------------------------
 
 dcl-pr RPGProcDoc extpgm;
