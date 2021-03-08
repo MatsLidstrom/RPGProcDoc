@@ -5,7 +5,8 @@ ctl-opt actgrp('RPGProcDoc');
 // Program.........: RPGProcDoc
 // Description.....: RPG Procedure Documentaion
 // ................: Generates JSON File with Documantation taken from Prototype Source
-// Author..........: Mats Lidström...
+// ................: Same data also stored in the Db2 table RPGProcDoc
+// Author..........: Mats Lidström
 // Created.........: 2018-08-04
 // Version.........: V1.5 2018-11-01
 // Version.........: V2.0 2021-03-06 - RPGProcDoc Table and JSON via SQL
@@ -182,7 +183,8 @@ dcl-proc get_PrototypeMembers;
     endif;
 
     // Get list of Prototype members from Prototype File
-    wCommand = 'DSPFD FILE(' + %trim(gblDocLibrary) + '/' + %trim(gblDocSourceFile) + ') TYPE(*MBRLIST) OUTPUT(*OUTFILE) OUTFILE(QTEMP/DocMembers)';
+    wCommand = 'DSPFD FILE(' + %trim(gblDocLibrary) + '/' + %trim(gblDocSourceFile) + 
+               ') TYPE(*MBRLIST) OUTPUT(*OUTFILE) OUTFILE(QTEMP/DocMembers)';
     exec_Command(wCommand);
 
     clear MemberList;
@@ -217,7 +219,8 @@ dcl-proc get_DocLines;
     endif;
 
     // Create Temp Alias to read Prototyp Member
-    SQLStatement = 'CREATE ALIAS QTEMP.' + %trim(gblDocSourceMember) + ' FOR ' + %trim(gblDocLibrary) + '.' + %trim(gblDocSourceFile) + ' (' + %trim(gblDocSourceMember) + ')';
+    SQLStatement = 'CREATE ALIAS QTEMP.' + %trim(gblDocSourceMember) + ' FOR ' + %trim(gblDocLibrary) + '.' +
+                   %trim(gblDocSourceFile) + ' (' + %trim(gblDocSourceMember) + ')';
     exec sql PREPARE ST FROM :SQLStatement;
     exec sql EXECUTE ST;
 
@@ -439,7 +442,8 @@ dcl-proc create_JSON_IFS_File;
                 SELECT
                     JSON_OBJECT('Procedure_Name' : TRIM(ProcedureName),
                                 'Procedure_Info' :
-                                '{' CONCAT LISTAGG(('"' CONCAT TRIM(LabelName) CONCAT '":"' CONCAT TRIM(LabelValue) CONCAT '"'), ',') WITHIN GROUP(ORDER BY SequenceNumber) CONCAT '}'
+                                '{' CONCAT LISTAGG(('"' CONCAT TRIM(LabelName) CONCAT '":"' CONCAT TRIM(LabelValue) CONCAT
+                                '"'), ',') WITHIN GROUP(ORDER BY SequenceNumber) CONCAT '}'
                                 FORMAT JSON) AS ProcedureObject
                 FROM RPGProcDoc
                 WHERE ProcDocName = :gblProcDocName AND CreationTimestamp = :gblCreationTimestamp
@@ -470,7 +474,8 @@ dcl-proc create_JSON_IFS_File;
 
             exec sql
                 INSERT INTO RPGProcDoc
-                    VALUES(:gblProcDocName, :gblCreationTimestamp, :gblSequenceNumber, :gblProcedureName, :inLabel, :inValue, :gblDocSourceMember, :gblDocSourceFile, :gblDocLibrary);
+                    VALUES(:gblProcDocName, :gblCreationTimestamp, :gblSequenceNumber, :gblProcedureName,
+                           :inLabel, :inValue, :gblDocSourceMember, :gblDocSourceFile, :gblDocLibrary);
 
     return;
 
