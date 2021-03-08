@@ -1,8 +1,8 @@
 # RPGProcDoc
 A Documentation Tool for modern RPG development on IBM i. Find all your already created Procedures and use them again and again.
 
+<img width="960" alt="RPGProcDoc UI" src="https://user-images.githubusercontent.com/44493349/110350692-46d5bf00-8034-11eb-9bdf-273fb79480cc.png">
 
-<img width="960" alt="RPGProcDoc UI" src="https://user-images.githubusercontent.com/44493349/110349266-d5494100-8032-11eb-950e-182c194bd181.png">
 
 **Note** : The Web UI to Search and View the Documentation is not include here. Contact me to get a copy of it :-)
 
