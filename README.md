@@ -7,6 +7,8 @@ A Documentation Tool for modern RPG development on IBM i. Find all your already 
 **Note** : The Web UI to Search and View the Documentation is not include here. Contact me to get a copy of it :-)
 
 
+## The Build Part
+
 By writing a structured documentation per procedure prototype, the RPGProcDoc tool can scan and capture the documentation. This both in a Db2 table and as a JSON file.
 
 ### Example:
