@@ -451,7 +451,7 @@ dcl-proc create_JSON_IFS_File;
                 ORDER BY ProcDocName, CreationTimestamp, DocLibrary, DocSourceFile, ProcedureName)
 
             SELECT
-                JSON_OBJECT('Header'     : :gblDocHeader,
+                JSON_OBJECT('Header'     : TRIM(:gblDocHeader),
                             'Procedures' : JSON_ARRAYAGG((ProcedureObject) FORMAT JSON)
                 )
                 INTO :IFS_File
