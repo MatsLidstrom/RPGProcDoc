@@ -172,34 +172,32 @@ end-proc;
 
 // -------------------------------------------------------------------------------------------------
 // Sub Procedure...: get_PrototypeMembers
-// Description.....: Get list of Prototype Members in Source File and create Alias for each in QTEMP
+// Description.....: Get list of Prototype Members in Source File 
 // -------------------------------------------------------------------------------------------------
 dcl-proc get_PrototypeMembers;
-
-    dcl-s   wCommand    like(tCommand);
-
-    if gblJustInCase = 'Y';
-        exec sql DROP TABLE QTEMP.DocMembers;  // Delete if exist (just in case)
-    endif;
-
-    // Get list of Prototype members from Prototype File
-    wCommand = 'DSPFD FILE(' + %trim(gblDocLibrary) + '/' + %trim(gblDocSourceFile) + 
-               ') TYPE(*MBRLIST) OUTPUT(*OUTFILE) OUTFILE(QTEMP/DocMembers)';
-    exec_Command(wCommand);
 
     clear MemberList;
     gblMemberRows = %elem(MemberList); // Get no of elements in Memberlist
 
-    // Get Members into DS List
-    exec sql DECLARE C1 CURSOR FOR SELECT MLNAME AS MemberName FROM QTEMP.DocMembers FOR READ ONLY;
+    // Get list of Prototype members from Prototype File
+    exec sql DECLARE C1 CURSOR FOR
+        SELECT 
+            SYSTEM_TABLE_MEMBER AS MemberName
+        FROM QSYS2.SYSPARTITIONSTAT
+        WHERE SYSTEM_TABLE_SCHEMA = :gblDocLibrary AND SYSTEM_TABLE_NAME = :gblDocSourceFile
+          AND SOURCE_TYPE IS NOT NULL 
+        ORDER BY 1
+        FOR READ ONLY;
+
     exec sql OPEN C1;
     exec sql FETCH C1 FOR :gblMemberRows ROWS INTO :MemberList;
-    exec sql GET DIAGNOSTICS :gblMemberRows = ROW_COUNT;
-    exec sql CLOSE C1;
 
-    exec sql DROP TABLE QTEMP.DocMembers; // Delete TEMP Table when used
-
+    gblMemberRows = SQLER3;
+    
     return;
+
+on-exit;
+    exec sql CLOSE C1;
 
 end-proc;
 
@@ -459,23 +457,23 @@ dcl-proc create_JSON_IFS_File;
 
     end-proc;
 
-    // ----------------------------------------------
-    // Sub Procedure...: insert_RPGProcDocTable
-    // Description.....: Insert into RPGProcDoc Table
-    // ----------------------------------------------
-    dcl-proc insert_RPGProcDocTable;
+// ----------------------------------------------
+// Sub Procedure...: insert_RPGProcDocTable
+// Description.....: Insert into RPGProcDoc Table
+// ----------------------------------------------
+dcl-proc insert_RPGProcDocTable;
 
-        dcl-pi *n;
-            inLabel           like(DocLineList.Label) const;
-            inValue           like(DocLineList.Value) const;
-        end-pi;
+    dcl-pi *n;
+        inLabel           like(DocLineList.Label) const;
+        inValue           like(DocLineList.Value) const;
+    end-pi;
 
-            gblSequenceNumber += 1;
+        gblSequenceNumber += 1;
 
-            exec sql
-                INSERT INTO RPGProcDoc
-                    VALUES(:gblProcDocName, :gblCreationTimestamp, :gblSequenceNumber, :gblProcedureName,
-                           :inLabel, :inValue, :gblDocSourceMember, :gblDocSourceFile, :gblDocLibrary);
+        exec sql
+            INSERT INTO RPGProcDoc
+                VALUES(:gblProcDocName, :gblCreationTimestamp, :gblSequenceNumber, :gblProcedureName,
+                        :inLabel, :inValue, :gblDocSourceMember, :gblDocSourceFile, :gblDocLibrary);
 
     return;
 
