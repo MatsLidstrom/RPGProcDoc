@@ -11,6 +11,7 @@ ctl-opt actgrp('RPGProcDoc');
 // Version.........: V1.5 2018-11-01
 // Version.........: V2.0 2021-03-06 - RPGProcDoc Table and JSON via SQL
 // Version.........: V2.1 2021-03-07 - Handle up to 999 Doc Source Files
+// Version.........: V2.2 2022-04-07 - Optimize get of Member List
 // ------------------------------------------------------------------------------------
 
 exec sql SET OPTION COMMIT = *NONE, CLOSQLCSR = *ENDMOD, DATFMT = *ISO;
@@ -170,10 +171,10 @@ dcl-proc init_WorkFields;
 
 end-proc;
 
-// -------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------
 // Sub Procedure...: get_PrototypeMembers
 // Description.....: Get list of Prototype Members in Source File 
-// -------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------
 dcl-proc get_PrototypeMembers;
 
     clear MemberList;
@@ -411,10 +412,10 @@ dcl-proc create_JSON;
 
 end-proc;
 
-// ----------------------------------------------------------
+// ---------------------------------------------
 // Sub Procedure...: create_JSON_IFS_File
 // Description.....: Create JSON File on the IFS
-// ----------------------------------------------------------
+// ---------------------------------------------
 dcl-proc create_JSON_IFS_File;
 
     dcl-pi *n;
@@ -474,27 +475,6 @@ dcl-proc insert_RPGProcDocTable;
             INSERT INTO RPGProcDoc
                 VALUES(:gblProcDocName, :gblCreationTimestamp, :gblSequenceNumber, :gblProcedureName,
                         :inLabel, :inValue, :gblDocSourceMember, :gblDocSourceFile, :gblDocLibrary);
-
-    return;
-
-end-proc;
-
-// ---------------------------------
-// Sub Procedure...: exec_Command
-// Description.....: Execute Command
-// ---------------------------------
-dcl-proc exec_Command;
-
-    dcl-pi *n;
-        inCommand like(tCommand) const;
-    end-pi;
-
-        dcl-pr QCMDEXC extpgm;
-            *n char(256) options(*varsize) const;
-            *n packed(15:5) const;
-        end-pr;
-
-        QCMDEXC(inCommand:%len(%trimr(inCommand)));
 
     return;
 
